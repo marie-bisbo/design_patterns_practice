@@ -14,7 +14,7 @@ enum class Input
 class InputHandler
 {
 public:
-	void handleInput();
+	Command* handleInput();
 	bool isPressed(Input input);
 
 	Input currentInput = Input::NUM_INPUT;

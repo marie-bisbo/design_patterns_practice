@@ -4,6 +4,7 @@
 int main()
 {
     InputHandler* inputHandler = new InputHandler();
+    Actor* actor = new Actor();
 
     for (int i = 0; i < 10; i++)
     {
@@ -16,7 +17,11 @@ int main()
             inputHandler->currentInput = Input::BUTTON_A;
         }
 
-        inputHandler->handleInput();
+        Command* command = inputHandler->handleInput();
+        if (command)
+        {
+            command->execute(*actor);
+        }
     }
 
     delete inputHandler;

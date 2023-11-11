@@ -1,13 +1,13 @@
 #include "InputHandler.h"
 
-#include <iostream>
-
-void InputHandler::handleInput()
+Command* InputHandler::handleInput()
 {
-    if (isPressed(Input::BUTTON_X)) buttonX_->execute();
-    else if (isPressed(Input::BUTTON_Y)) buttonY_->execute();
-    else if (isPressed(Input::BUTTON_A)) buttonA_->execute();
-    else if (isPressed(Input::BUTTON_B)) buttonB_->execute();
+    if (isPressed(Input::BUTTON_X)) return buttonX_;
+    if (isPressed(Input::BUTTON_Y)) return buttonY_;
+    if (isPressed(Input::BUTTON_A)) return buttonA_;
+    if (isPressed(Input::BUTTON_B)) return buttonB_;
+
+    return nullptr;
 }
 
 bool InputHandler::isPressed(Input input)
